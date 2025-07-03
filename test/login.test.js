@@ -1,16 +1,21 @@
+// importando biblioteca SuperTest - para fazer requisições a API
 const request = require('supertest');
+// importando biblioteca Chai -  para validar comparações entre resposta e valor esperado
 const { expect } = require('chai');
 
+// utilizando mocha para estruturar e executar os testes
 describe('Login', () => {
     describe('POST /login', () => {
         it('Deve retornar 200 com token em string quando usar credenciais válidas', async () => {
             const resposta = await request('http://localhost:3000')
+                // supertest
                 .post('/login')
                 .set('Content-type', 'application/json')
                 .send({
                     'username': 'julio.lima',
                     'senha': '123456'
                 })
+            // chai
             expect(resposta.status).to.equal(200);
             expect(resposta.body.token).to.be.a('string');
         });
