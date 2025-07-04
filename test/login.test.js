@@ -2,12 +2,15 @@
 const request = require('supertest');
 // importando biblioteca Chai -  para validar comparações entre resposta e valor esperado
 const { expect } = require('chai');
+// importando a biblioteca dotenv
+require('dotenv').config();
+
 
 // utilizando mocha para estruturar e executar os testes
 describe('Login', () => {
     describe('POST /login', () => {
         it('Deve retornar 200 com token em string quando usar credenciais válidas', async () => {
-            const resposta = await request('http://localhost:3000')
+            const resposta = await request(process.env.BASE_URL)
                 // supertest
                 .post('/login')
                 .set('Content-type', 'application/json')
