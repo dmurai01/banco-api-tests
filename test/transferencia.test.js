@@ -10,7 +10,6 @@ describe('Transferências', () => {
         beforeEach(async () => {
             // Capturar token
             token = await obterToken('julio.lima', '123456')
-
         });
 
         // R1 - Valor mínimo para transferência é R$ 10,00
@@ -30,7 +29,7 @@ describe('Transferências', () => {
             const bodyTransferencias = {...postTransferencias}
             bodyTransferencias.valor = 7
 
-            const resposta = await request('http://localhost:3000')
+            const resposta = await request(process.env.BASE_URL)
                 .post('/transferencias')
                 .set('Content-type', 'application/json')
                 .set('Authorization', `Bearer ${token}`)
