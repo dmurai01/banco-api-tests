@@ -14,7 +14,8 @@ Este projeto tem como objetivo realizar testes automatizados na API REST do proj
 - [dotenv](https://github.com/motdotla/dotenv) — Gerenciamento de variáveis de ambiente
 
 ## Estrutura de Diretórios
-banco-api-tests/ 
+```
+banco-api-tests/
 ├── fixtures/ 
 │ ├── postLogin.json 
 │ └── postTransferencias.json 
@@ -28,6 +29,7 @@ banco-api-tests/
 ├── .gitignore 
 ├── package.json 
 └── README.md
+```
 
 ## Formato do arquivo `.env`
 
